@@ -45,11 +45,7 @@ class _MainScreenState extends State<MainScreen> {
 
     detector = ShakeDetector.autoStart(
       onPhoneShake: (_) {
-        setState(() {
-          hitsCounter = hitsCounter + 1;
-        });
         _onShake();
-        _playSound();
       },
       minimumShakeCount: 1,
       shakeSlopTimeMS: 250,
@@ -65,6 +61,14 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void _onShake() {
+    setState(() {
+      hitsCounter = hitsCounter + 1;
+    });
+    _changeImageIndex();
+    _playSound();
+  }
+
+  void _changeImageIndex() {
     int newIndex;
     do {
       newIndex = Random().nextInt(images.length);

@@ -48,7 +48,7 @@ class _MainScreenState extends State<MainScreen> {
         _onShake();
       },
       minimumShakeCount: 1,
-      shakeSlopTimeMS: 250,
+      shakeSlopTimeMS: 1000,
       shakeCountResetTime: 3000,
       shakeThresholdGravity: 2,
     );
